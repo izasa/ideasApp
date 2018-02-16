@@ -1,17 +1,11 @@
+
+
 import React, {Component} from 'react';
 import Idea from './Idea'
 import _ from 'lodash';
-import firebase from 'firebase';
 import  database from '../database';
 
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
-import promise from 'redux-promise';
-
-
-import NewIdea from './NewIdea';
-import reducers from '../reducers';
+import { Link } from 'react-router-dom';
 
 class IdeaList extends Component {
     
@@ -48,11 +42,13 @@ class IdeaList extends Component {
     render() {
         let ideasNodes = this.state.ideas.map((idea) => {
             return (
-              <div className="card"  key={idea.detail}>
+              <div className="card"  key={idea.key}>
                 <div className="card-content" >
                   <Idea 
                   title = {idea.title} 
                   category = {idea.category} 
+                  detail = {idea.detail}
+                  description = {idea.description}
                  />
                 </div>
               </div>
